@@ -83,7 +83,7 @@
         </record>
 
         <!-- Menús -->
-        <menuitem id="adopciones_refugio_menu_root" name="Adopciones del Refugio" sequence="1" web_icon="adopciones_refugio, static/description/icon.jpg"/>
+        <menuitem id="adopciones_refugio_menu_root" name="Adopciones del Refugio" sequence="1" web_icon="adopciones_refugio,static/description/icon.png"/>
         <menuitem id="menu_adoptante" name="Adoptantes" parent="adopciones_refugio_menu_root" action="action_adoptante" sequence="1" />
         <menuitem id="menu_adopcion" name="Adopciones" parent="adopciones_refugio_menu_root" action="action_adopcion" sequence="2" />
 

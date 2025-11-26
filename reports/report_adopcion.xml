@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Acción del reporte -->
+    <record id="action_report_adopcion" model="ir.actions.report">
+        <!-- Nombre del informe que se verá en el botón Imprimir -->
+        <field name="name">Informe de la adopcion</field>
+
+        <!-- Nombre técnico del modelo sobre el que se genera el informe -->
+        <field name="model">adopciones_refugio.adopcion</field>
+
+        <!-- Tipo de reporte: puede ser qweb-pdf o qweb-html -->
+        <field name="report_type">qweb-pdf</field>
+
+        <!-- Nombre técnico de la plantilla QWeb -->
+        <field name="report_name">adopciones_refugio.report_adopcion</field>
+
+        <!-- Enlace entre la acción y el modelo -->
+        <field name="binding_model_id" ref="adopciones_refugio.model_adopciones_refugio_adopcion"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <!-- Plantilla QWeb del informe -->
+    <template id="report_adopcion">
+        <!-- Llama a la estructura general de los reportes de Odoo -->
+        <t t-call="web.html_container">
+            <!-- Itera sobre los registros seleccionados -->
+            <t t-foreach="docs" t-as="adopcion">
+                <!-- Inserta el diseño estándar con encabezado y pie -->
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <!-- Título del reporte -->
+                        <h2>Informe de la adopcion de <t t-esc="adopcion.animal_id.nombre_animal" /></h2>
+
+                        <!-- Ejemplo de tabla con datos -->
+                        <table class="table table-sm table-bordered" style="width:100%;">
+                            <thead>
+                                <tr>
+                                    <th>Animal</th>
+                                    <th>Adoptante</th>
+                                    <th>Fecha</th>
+                                    <th>Estado</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><t t-esc="adopcion.animal_id.nombre_animal"/></td>
+                                    <td><t t-esc="adopcion.adoptante_id.nombre"/></td>
+                                    <td><t t-esc="adopcion.fecha"/></td>
+                                    <td><t t-esc="adopcion.estado"/></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>

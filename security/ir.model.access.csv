@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_adoptante,adopciones_refugio.adoptante,model_adopciones_refugio_adoptante,base.group_user,1,1,1,1
+access_adopcion,adopciones_refugio.adopcion,model_adopciones_refugio_adopcion,base.group_user,1,1,1,1

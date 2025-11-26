@@ -1,0 +1,91 @@
+<odoo>
+    <data>
+
+        <!-- Vistas para el modelo 'adoptante' -->
+        <record id="view_adoptante_list" model="ir.ui.view">
+            <field name="name">adoptante.list</field>
+            <field name="model">adopciones_refugio.adoptante</field>
+            <field name="arch" type="xml">
+                <list string="adoptantes">
+                    <field name="nombre" />
+                    <field name="apellidos" />
+                </list>
+            </field>
+        </record>
+
+        <record id="view_adoptante_form" model="ir.ui.view">
+            <field name="name">adoptante.form</field>
+            <field name="model">adopciones_refugio.adoptante</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="%(action_report_adoptante)d"
+                                string="Imprimir informe"
+                                type="action"
+                                class="oe_highlight"
+                                icon="fa-print"/>
+                    </header>
+                    <group>
+                        <field name="nombre" />
+                        <field name="apellidos" />
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <!-- Vistas para el modelo 'adopcion' -->
+        <record id="view_adopcion_list" model="ir.ui.view">
+            <field name="name">adopcion.list</field>
+            <field name="model">adopciones_refugio.adopcion</field>
+            <field name="arch" type="xml">
+                <list string="adopciones">
+                    <field name="animal_id" />
+                    <field name="adoptante_id" />
+                    <field name="fecha" />
+                    <field name="estado" />
+                </list>
+            </field>
+        </record>
+
+        <record id="view_adopcion_form" model="ir.ui.view">
+            <field name="name">adopcion.form</field>
+            <field name="model">adopciones_refugio.adopcion</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="%(action_report_adopcion)d"
+                                string="Imprimir informe"
+                                type="action"
+                                class="oe_highlight"
+                                icon="fa-print"/>
+                    </header>
+                    <group>
+                        <field name="animal_id" />
+                        <field name="adoptante_id" />
+                        <field name="fecha" />
+                        <field name="estado" />
+                    </group>
+                </form>
+            </field>
+          </record>
+
+        <!-- Acciones -->
+        <record id="action_adoptante" model="ir.actions.act_window">
+            <field name="name">Adoptantes</field>
+            <field name="res_model">adopciones_refugio.adoptante</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+        <record id="action_adopcion" model="ir.actions.act_window">
+            <field name="name">Adopcion</field>
+            <field name="res_model">adopciones_refugio.adopcion</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+        <!-- Menús -->
+        <menuitem id="adopciones_refugio_menu_root" name="Adopciones del Refugio" sequence="1" web_icon="adopciones_refugio, static/description/icon.jpg"/>
+        <menuitem id="menu_adoptante" name="Adoptantes" parent="adopciones_refugio_menu_root" action="action_adoptante" sequence="1" />
+        <menuitem id="menu_adopcion" name="Adopciones" parent="adopciones_refugio_menu_root" action="action_adopcion" sequence="2" />
+
+    </data>
+</odoo>

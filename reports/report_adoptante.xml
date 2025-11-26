@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Acción del reporte -->
+    <record id="action_report_adoptante" model="ir.actions.report">
+        <!-- Nombre del informe que se verá en el botón Imprimir -->
+        <field name="name">Informe de el adoptante</field>
+
+        <!-- Nombre técnico del modelo sobre el que se genera el informe -->
+        <field name="model">adopciones_refugio.adoptante</field>
+
+        <!-- Tipo de reporte: puede ser qweb-pdf o qweb-html -->
+        <field name="report_type">qweb-pdf</field>
+
+        <!-- Nombre técnico de la plantilla QWeb -->
+        <field name="report_name">adopciones_refugio.report_adoptante</field>
+
+        <!-- Enlace entre la acción y el modelo -->
+        <field name="binding_model_id" ref="adopciones_refugio.model_adopciones_refugio_adoptante"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <!-- Plantilla QWeb del informe -->
+    <template id="report_adoptante">
+        <!-- Llama a la estructura general de los reportes de Odoo -->
+        <t t-call="web.html_container">
+            <!-- Itera sobre los registros seleccionados -->
+            <t t-foreach="docs" t-as="adoptante">
+                <!-- Inserta el diseño estándar con encabezado y pie -->
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <!-- Título del reporte -->
+                        <h2>Informe de el adoptante <t t-esc="adoptante.nombre"/></h2>
+
+                        <!-- Ejemplo de tabla con datos -->
+                        <table class="table table-sm table-bordered" style="width:100%;">
+                            <thead>
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th>Apellidos</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><t t-esc="adoptante.nombre"/></td>
+                                    <td><t t-esc="adoptante.apellidos"/></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>

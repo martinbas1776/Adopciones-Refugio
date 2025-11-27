@@ -1,3 +1,4 @@
+```
 Modelos:
   - adoptante
   - adopcion
@@ -16,3 +17,4 @@ adopcion
     - confirmado
     - facturado
     - cancelado
+```

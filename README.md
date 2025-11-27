@@ -1,3 +1,9 @@
+Para el desarrollo de este se han utilizado las siguientes tecnologías y lenguajes:
+  - odoo
+  - xml
+  - python
+Como se podrá comprobar más adelante, este módulo depende de otro con el nombre de "refugio_animales" y será imprescindible tenerle instalado antes de instalar este.
+
 ```
 Modelos:
   - adoptante
